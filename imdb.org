@@ -269,7 +269,8 @@ model.eval(input_fn=input_fn_eval)
 for c in [0.01, 0.05, 0.25]:
     lr = LogisticRegression(C=c)
     lr.fit(X_train_oh, y_train)
-    print ("Accuracy for C=%s: %s" 
+    print(f"Train accuracy for C={c}: {accuracy_score(y_train, lr.predict(X_train_oh))}")
+    print("Test accuracy for C=%s: %s" 
            % (c, accuracy_score(y_test, lr.predict(X_test_oh))))
 #+end_src
 
